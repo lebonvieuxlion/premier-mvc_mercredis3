@@ -34,8 +34,8 @@ class Router
           @controller.index_gossips
 
         when 3
-          puts "Tu as choisi de supprimer un gossip grand fou."
-            @controller.destroy
+          puts "Tu as choisi de supprimer un gossip grand fou. Voici les gossips existant :" #(ne fonctionne pas)
+            @controller.delete_gossip
 
       	when 4
       		puts "A bientôt !"

@@ -29,7 +29,14 @@ class  Controller
 
 	end
 
-	def destroy
+	def delete_gossip 
+
+		index_gossips
+		gossip_to_delete = @view.choose_gossip
+		Gossip.delete(gossip_to_delete)
+		puts "\nVoici la liste de gossip mise à jour\n"
+		index_gossips
+
 
 
 

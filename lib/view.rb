@@ -21,18 +21,54 @@ class View
 	end
 
 
-	def index_gossips(gossips)
+	def index_gossips(gossips)		#méthode pour afficher pour chaque instance contenu dans le tableau créé par la classe gossip son auteur et contenu
+
+		puts""
 
 		gossips.each do |line|
 
 			puts "#{line.author} a dit : #{line.content}"
 
 
+
 		end
 
+		puts ""
+
+	end
+
+
+
+
+	def delete_gossip			 #méthode pour obtenir le gossip qu'on veut effacer (ne fonctionne pas)
+
+		puts "Alors comme ça on veut virer des gossips ? Choisi le numéro de ligne que tu veux effacer :"
+		print ">"
+		line_number = gets.to_i
+
+		Voici
+
+		return line_number		#on récupère le numéro de ligne qu'on devra effacer 
 
 
 	end
+
+
+
+
+
+	def choose_gossip
+
+		puts "Parmi cette liste tu peux choisir un gossip à supprimer (écris le mot pour mot) :"
+		print ">"
+		content_gossip_chosen = gets.chomp
+
+		return content_gossip_chosen
+
+	end
+
+
+
 
 
 

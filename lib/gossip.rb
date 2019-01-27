@@ -29,6 +29,7 @@ class Gossip
 
 			CSV.open("db/gossip.csv", "wb") do |csv|
 
+				csv << ["author", "content"]
 				csv << [@author, @content]
 
 			end
@@ -48,15 +49,20 @@ class Gossip
 
 	end
 
+
 	def self.all
 
 		all_gossips = []
 
 		all_array =  CSV.open("db/gossip.csv", "r").each do |line|
 
+			unless line[0] == "author"
+
 			gossip_provisoire = Gossip.new(line[0], line[1])
 
 			all_gossips << gossip_provisoire
+
+			end
 
 		end
 
@@ -64,7 +70,26 @@ class Gossip
 	end
 
 
-	def destroy
+
+
+	def self.delete(gossip)
+
+		table = CSV.table("db/gossip.csv")
+
+		table.delete_if do |row|
+
+			row[:content] == gossip
+
+		end
+
+		File.open("db/gossip.csv", "w") do |f|
+
+			f.write(table.to_csv)
+
+		end
+
+
+
 
 
 	end
